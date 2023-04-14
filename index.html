@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Random Questions</title>
+</head>
+<body>
+  <h1>Random Questions</h1>
+
+  <script>
+    // Load the JSON file
+    fetch('questions.json')
+      .then(response => response.json())
+      .then(data => {
+        // Shuffle the questions
+        const shuffledQuestions = data.questions.sort(() => Math.random() - 0.5);
+
+        // Select up to five questions
+        const selectedQuestions = shuffledQuestions.slice(0, 5);
+
+        // Display each question
+        selectedQuestions.forEach(question => {
+          const { vignette, choices, answer, explanation } = question;
+
+          // Shuffle the answer choices
+          const shuffledChoices = choices.sort(() => Math.random() - 0.5);
+
+          // Create a div for the question
+          const questionDiv = document.createElement('div');
+          questionDiv.innerHTML = `<h2>${vignette}</h2>`;
+
+          // Create a radio button for each answer choice
+          shuffledChoices.forEach((choice, index) => {
+            const input = document.createElement('input');
+            input.type = 'radio';
+            input.name = `question-${index}`;
+            input.value = choice;
+            input.addEventListener('change', () => {
+              if (choice === answer) {
+                alert('Correct!');
+              } else {
+                alert(`Incorrect. The correct answer is ${answer}. ${explanation}`);
+              }
+            });
+
+            const label = document.createElement('label');
+            label.textContent = choice;
+
+            const choiceDiv = document.createElement('div');
+            choiceDiv.appendChild(input);
+            choiceDiv.appendChild(label);
+
+            questionDiv.appendChild(choiceDiv);
+          });
+
+          document.body.appendChild(questionDiv);
+        });
+      });
+  </script>
+</body>
+</html>
+

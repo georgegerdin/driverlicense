@@ -1,0 +1,26 @@
+{
+  "questions": [
+    {
+      "vignette": "A man walks into a bar and orders a drink. The bartender pulls out a gun and points it at him. The man says 'Thank you' and walks out. Why did he say thank you?",
+      "choices": [
+        "The man was being sarcastic",
+        "The man was thanking the bartender for his service",
+        "The man was thanking the bartender for not shooting him",
+        "The man was thanking the bartender for giving him a drink"
+      ],
+      "answer": 3,
+      "explanation": "The man had hiccups, and the shock of the gun made them go away."
+    },
+    {
+      "vignette": "A plane crashes on the border between Canada and the United States. Where do they bury the survivors?",
+      "choices": [
+        "Canada",
+        "United States",
+        "Neither, survivors don't get buried"
+      ],
+      "answer": 2,
+      "explanation": "Survivors don't get buried."
+    }
+  ]
+}
+
